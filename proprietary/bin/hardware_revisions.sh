@@ -152,11 +152,7 @@ if [ -d "${PATH_NVM}" ] ; then
     VEND=`cat ${PATH_NVM}/manfid`
     HREV=`cat ${PATH_NVM}/name`
     DATE=`cat ${PATH_NVM}/date`
-    if [ -e ${PATH_NVM}/device_version -a -e ${PATH_NVM}/firmware_version ] ; then
-        FREV="$(cat ${PATH_NVM}/device_version),$(cat ${PATH_NVM}/firmware_version)"
-    else
-        FREV="$(cat ${PATH_NVM}/hwrev),$(cat ${PATH_NVM}/fwrev)"
-    fi
+    FREV="$(cat ${PATH_NVM}/hwrev),$(cat ${PATH_NVM}/fwrev)"
     LOT_CODE="$(cat ${PATH_NVM}/csd)"
 fi
 create_common_revision_data "${FILE}" "${HNAME}" "${VEND}" "${HREV}" "${DATE}" "${LOT_CODE}" "${FREV}"
